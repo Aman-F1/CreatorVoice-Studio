@@ -1,0 +1,55 @@
+{
+  "app_name": "CreatorVoice Studio",
+  "version": "1.0.0",
+  "description": "Offline FFmpeg audio presets engineered for YouTube creators.",
+  "presets": [
+    {
+      "id": "podcast_warmth",
+      "name": "Podcast Voice (Rich & Deep)",
+      "description": "Adds bass warmth, smooth compression, and removes low-end rumble for a broadcast podcast style.",
+      "ffmpeg_command": "-af highpass=f=80,equalizer=f=250:width_type=h:width=100:g=-2,equalizer=f=3000:width_type=h:width=200:g=3,compand=attacks=0.01:decays=0.1:points=-60/-60|-24/-12|-8/-3|0/0,loudnorm=I=-14:TP=-1.0:LRA=11",
+      "parameters": {
+        "highpass_cutoff_hz": 80,
+        "mud_cut_frequency_hz": 250,
+        "mud_cut_gain_db": -2,
+        "clarity_boost_hz": 3000,
+        "clarity_gain_db": 3,
+        "target_lufs": -14
+      }
+    },
+    {
+      "id": "crisp_tech",
+      "name": "Crisp & Punchy (Tech / Gaming)",
+      "description": "Enhances high-end clarity, boosts speech presence, and applies fast compression for high-energy video commentary.",
+      "ffmpeg_command": "-af highpass=f=100,equalizer=f=4500:width_type=h:width=300:g=4,compand=attacks=0.005:decays=0.05:points=-50/-50|-20/-8|0/0,loudnorm=I=-13:TP=-1.0",
+      "parameters": {
+        "highpass_cutoff_hz": 100,
+        "presence_boost_hz": 4500,
+        "presence_gain_db": 4,
+        "target_lufs": -13
+      }
+    },
+    {
+      "id": "studio_clean",
+      "name": "Hiss & Background Noise Cleaner",
+      "description": "Filters out background hiss, fan noise, and applies standard studio equalization.",
+      "ffmpeg_command": "-af highpass=f=90,lowpass=f=15000,afftdn=nr=12:nf=-50,loudnorm=I=-16:TP=-1.5",
+      "parameters": {
+        "noise_reduction_db": 12,
+        "noise_floor_db": -50,
+        "highpass_hz": 90,
+        "lowpass_hz": 15000
+      }
+    },
+    {
+      "id": "youtube_normalizer",
+      "name": "YouTube Loudness Normalizer (-14 LUFS)",
+      "description": "Normalizes voiceover audio strictly to YouTube standard loudness level to prevent distortion and clipping.",
+      "ffmpeg_command": "-af loudnorm=I=-14:TP=-1.0:LRA=7",
+      "parameters": {
+        "target_lufs": -14,
+        "true_peak_db": -1.0
+      }
+    }
+  ]
+}
