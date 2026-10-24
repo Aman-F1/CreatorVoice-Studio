@@ -67,29 +67,6 @@ Logic: Combines noise reduction, clarity boost, dynamic compression, and YouTube
 ffmpeg -i input.wav -af "highpass=f=90,lowpass=f=15000,afftdn=nr=12:nf=-50,equalizer=f=4500:width_type=h:width=300:g=4,compand=attacks=0.005:decays=0.05:points=-50/-50|-20/-8|0/0,loudnorm=I=-14:TP=-1.0:LRA=7" output.wav
 
 
-📱 Planned UI Layout
-
-+-----------------------------------+
-|       CreatorVoice Studio         |
-+-----------------------------------+
-|  [ 🎙️ Record Audio ]               |
-|               OR                  |
-|  [ 📁 Import Audio File ]          |
-+-----------------------------------+
-|  Preview Waveform Visualizer      |
-+-----------------------------------+
-|  Select Creator Preset:           |
-|   (o) Podcast Voice (Rich & Deep) |
-|   ( ) Crisp & Punchy (Tech)       |
-|   ( ) Hiss & Noise Removal        |
-|   ( ) YouTube Normalizer          |
-|   ( ) All-in-One Master Preset    |
-+-----------------------------------+
-|  [ ▶️ Play Preview ]               |
-|  [ 💾 Export Enhanced Audio ]     |
-+-----------------------------------+
-
-
 🤝 How to Contribute
 
 We welcome open-source contributions! Developers can contribute by:
